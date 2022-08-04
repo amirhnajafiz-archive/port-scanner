@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	openports := scanner.Scan("", 2048, 100)
+	openports := scanner.Scan("", 2048)
 
 	for _, port := range openports {
 		fmt.Printf("%d open\n", port)

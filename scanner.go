@@ -9,7 +9,12 @@ import (
 // Scan takes a uri, portRange and number of workers and will
 // test the uri ports in portRange (0, portRange) with workers and then
 // returns the open ports.
-func Scan(uri string, portRange int, numberOfWorkers int) []int {
+func Scan(uri string, portRange int, workers ...int) []int {
+	numberOfWorkers := 100
+	if len(workers) > 0 {
+		numberOfWorkers = workers[0]
+	}
+
 	ports := make(chan int, numberOfWorkers)
 	response := make(chan int)
 
