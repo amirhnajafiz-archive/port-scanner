@@ -5,13 +5,9 @@ import (
 	"net"
 )
 
-type Worker struct {
-	URI string
-}
-
-func (w *Worker) Start(port chan int, response chan int) {
+func Worker(port chan int, response chan int, uri string) {
 	for p := range port {
-		address := fmt.Sprintf("%s:%d", w.URI, p)
+		address := fmt.Sprintf("%s:%d", uri, p)
 
 		conn, err := net.Dial("tcp", address)
 		if err != nil {
