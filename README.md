@@ -7,6 +7,11 @@ Fast library for scanning ports of a host
 </p>
 
 ## How to use?
+Get package:
+```shell
+go get github.com/amirhnajafiz/port-scanner
+```
+
 You need to give a host address and port range, after that the scanner will 
 check the ports and returns the open ports.
 
