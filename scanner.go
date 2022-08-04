@@ -6,6 +6,9 @@ import (
 	"github.com/amirhnajafiz/port-scanner/worker"
 )
 
+// Scan takes a uri, portRange and number of workers and will
+// test the uri ports in portRange (0, portRange) with workers and then
+// returns the open ports.
 func Scan(uri string, portRange int, numberOfWorkers int) []int {
 	ports := make(chan int, numberOfWorkers)
 	response := make(chan int)
