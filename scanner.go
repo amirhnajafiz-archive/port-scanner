@@ -6,8 +6,8 @@ import (
 	"github.com/amirhnajafiz/port-scanner/worker"
 )
 
-func Scan(uri string, portRange int) []int {
-	ports := make(chan int, 100)
+func Scan(uri string, portRange int, numberOfWorkers int) []int {
+	ports := make(chan int, numberOfWorkers)
 	response := make(chan int)
 
 	var openports []int
