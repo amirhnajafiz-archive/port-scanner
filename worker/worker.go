@@ -2,6 +2,7 @@ package worker
 
 import (
 	"fmt"
+	"log"
 	"net"
 )
 
@@ -14,10 +15,14 @@ func Worker(port chan int, response chan int, uri string) {
 		conn, err := net.Dial("tcp", address)
 		if err != nil {
 			response <- 0
+
 			continue
 		}
 
-		conn.Close()
+		if err := conn.Close(); err != nil {
+			log.Fatalf("error in connection close: %v\n", err)
+		}
+
 		response <- p
 	}
 }
