@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="assets/logo.png" width="200" />
+</p>
+
 <h1 align="center">
 Port Scanner
 </h1>
