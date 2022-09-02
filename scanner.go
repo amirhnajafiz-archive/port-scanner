@@ -28,6 +28,11 @@ func Scan(uri string, portRange []int, workers ...int) []int {
 	ports := make(chan int, numberOfWorkers)
 	response := make(chan int)
 
+	defer func() {
+		close(ports)
+		close(response)
+	}()
+
 	var openPorts []int
 
 	for i := 0; i < cap(ports); i++ {
@@ -46,9 +51,6 @@ func Scan(uri string, portRange []int, workers ...int) []int {
 			openPorts = append(openPorts, port)
 		}
 	}
-
-	close(ports)
-	close(response)
 
 	sort.Ints(openPorts)
 
