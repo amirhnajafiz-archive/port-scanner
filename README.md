@@ -1,16 +1,5 @@
-<p align="center">
-    <img src="assets/logo.png" width="200" />
-</p>
+# Port Scanner
 
-<h1 align="center">
-Port Scanner
-</h1>
-
-<p align="center">
-Fast library for scanning ports of a host
-</p>
-
-## How to use?
 Get package:
 ```shell
 go get github.com/amirhnajafiz/port-scanner
